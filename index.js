@@ -41,7 +41,7 @@ function total() {
 
 function removeFromCart(item) {
   for (let i=0; i<cart.length; i++) {
-    if (i == cart.length) {
+    if (i === cart.length) {
       return "That item is not in your cart.";
     } else if (cart[i].itemName === item) {
       cart.splice(i,1);
@@ -51,11 +51,11 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
+  getCart();
+  total();
   if (cardNumber.length === 0) {
     return "Sorry, we don't have a credit card on file for you.";
   } else {
-    getCart();
-    total();
     cart = [];
     return "Your total cost is $" + cartCost + ", which will be charged to the card " + cardNumber + ".";
   }
